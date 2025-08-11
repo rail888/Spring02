@@ -14,30 +14,16 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-
         stage('2. Check Docker') {
             steps {
                 sh 'docker version'
             }
         }
+
+        stage('3. Docker Build') {
+            steps {
+                sh 'docker build -t ex02-app:latest .'
+            }
+        }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
